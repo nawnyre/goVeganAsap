@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<title>Vegan Stopwatch</title>
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Nutsa's Very First Vegan Stopwatch</h1>
+        <h4>With every second, according to the United States Animal Kill Clock,
+            271 land animals are killed in the U.S. food supply chain. This number jumps by an
+            order of magnitude —to 1,758 animals slaughtered for consumption every second — when
+            fish and other aquatic life are included.</h4>
+        <h2>Go vegan ASAP</h2>
+        <p>Time: <span id="minutes">00</span>:<span id="seconds">00</span>:<span id="tens">00</span></p>
+        <p>Animals Killed: <span id="animals">0</span></p>
+        <button id="button-start">Start</button>
+        <button id="button-stop">Stop</button>
+        <button id="button-reset">Reset</button>
+
+        <h5>*Colors of the page are specifically chosen to annoy you, as it is believed that certain colors can affect one's appetite.
+            This is because animals too may be annoyed by the thought of being served as food.</h5>
+    </div> 
+<script>
+    window.onload = function () {
+  var minutes = 00;
+  var seconds = 00; 
+  var tens = 00; 
+  var animals = 00;
+  var appendMinutes = document.getElementById("minutes")
+  var appendTens = document.getElementById("tens")
+  var appendSeconds = document.getElementById("seconds")
+  var appendAnimals = document.getElementById("animals")
+  var buttonStart = document.getElementById('button-start');
+  var buttonStop = document.getElementById('button-stop');
+  var buttonReset = document.getElementById('button-reset');
+  var Interval ;
+  buttonStart.onclick = function() {
+    clearInterval(Interval);
+     Interval = setInterval(startTimer, 10);
+  }
+    buttonStop.onclick = function() {
+       clearInterval(Interval);
+  }
+  buttonReset.onclick = function() {
+     clearInterval(Interval);
+    tens = "00";
+  	seconds = "00";
+    minutes="00";
+    animals="0";
+    appendTens.innerHTML = tens;
+  	appendSeconds.innerHTML = seconds;
+    appendMinutes.innerHTML = minutes;
+    appendAnimals.innerHTML = animals;
+  }
+  function startTimer () {
+    tens++; 
+    if(tens <= 9){
+      appendTens.innerHTML = "0" + tens;
+    }
+    if (tens > 9){
+      appendTens.innerHTML = tens;
+    } 
+    if (tens > 99) {
+      console.log("seconds");
+      seconds++;
+      appendSeconds.innerHTML = "0" + seconds;
+      tens = 0;
+      appendTens.innerHTML = "0" + 0;
+      console.log("animals");
+      appendAnimals.innerHTML = 1758 * seconds;  
+    }
+    if (seconds > 9){
+      appendSeconds.innerHTML = seconds;
+    } 
+    if(seconds > 59){
+        console.log("minutes");
+        minutes++;
+        appendMinutes.innerHTML= "0" + minutes;
+        seconds = 0;
+        appendSeconds.innerHTML = "0"+ 0;
+    }
+  }
+}
+</script>
+</body>

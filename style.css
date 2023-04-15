@@ -1,0 +1,29 @@
+body {
+    padding: 0px;
+    margin: 0px;
+}
+.wrapper {
+    background-color: yellow;
+    color: purple;
+    margin: auto;
+    text-align: center;
+    border-radius: 5%;
+    padding: 40px;
+}
+button {
+    background-color: purple;
+    color: white;
+    border:none;
+    width: 150px;
+    height: 50px;
+    border-radius: 7%;
+    font-size: 20px;
+    margin: 10px;
+}
+p {
+    font-size: 25px;
+    color: red;
+}
+h5 {
+    color: blue;
+}
